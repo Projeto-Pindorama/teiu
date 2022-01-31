@@ -45,4 +45,13 @@ function disk_lookup {
 	IFS=$OLDIFS printf '%s, %s' $disk $REPLY
 }
 
+# Function plain-copied from cmd/download_sources.bash
+realpath(){
+  file_basename=`basename $1`
+  file_dirname=`dirname $1`
+	# get the absolute directory name
+	# example: ./sources.txt -> /usr/src/copacabana-repo/sources.txt
+  echo "`cd "${file_dirname}"; pwd`/${file_basename}"
+}
+
 main

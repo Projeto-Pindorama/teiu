@@ -20,6 +20,34 @@ implemented in it's own way. We don't need to plain mint Sun's work nor
 ideas here, we think by ourselves. :^)
 
 ## Features? (And why not Calamares?)
+Made in Shell script (ksh93), documented code, easy to hack-n-read, no frills,
+it just works.  
+
+Although Calamares being widespread and well-recognized by the Linux community,
+I think it's overkill to build X and have to worry with graphics card compatibility
+in a miniroot CD (or USB, it doesn't matter) just meant to install the operating
+system. 
+Why should I, besides the effort that I already had, compile X, a WM, configure
+and strip everything just for running a program that will install Copacabana 
+when I can just put a stripped version of Copacabana with ksh93 and some network
+utilities and run Teiú without any other concern besides what I already have to
+worry about?  
+
+### TODO
+#### Basic features
+
+- A concrete way to drop the user to the shell;
+- Make it possible to partition and format disks from the installer;
+- Make it capable of keeping partitions and formatting others (this is *really*
+  important);
+- Network support as an option (eg.: if I want, I can choose to download stages
+  from a FTP and/or a 9P network instead of using what is in the CD);
+- Make it portable — in other words, if any distribution that distributes the
+  system in a different way than Copacabana, they can use Teiú with just a little hacking.
+
+#### "Advanced" features
+
+- For now, just keep it simple.
 
 ## Chip in!
 
