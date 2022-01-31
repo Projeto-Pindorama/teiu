@@ -1,5 +1,5 @@
 # Teiú
-The really tiny² installation system for Copacabana Linux.
+The really tiny² installation wizard for Copacabana Linux.
 
 ## What is the main idea?
 This is meant to be an installation system/wizard for Copacabana Linux.  
@@ -43,7 +43,8 @@ mouse plague when we could use rat posion.
 - Make it capable of keeping partitions and formatting others (this is *really*
   important);
 - Network support as an option (eg.: if I want, I can choose to download stages
-  from a FTP and/or a 9P network instead of using what is in the CD);
+  from a FTP and/or a 9P network instead of using what is in the CD, like what
+is made in Slackware);
 - Simple to use and understand;
 - Make it portable — in other words, if any distribution that distributes the
   system in a different way than Copacabana, they can use Teiú with just a little hacking.
@@ -53,5 +54,9 @@ mouse plague when we could use rat posion.
 - For now, just keep it simple.
 
 ## Chip in!
+If you're willing to chip in, you can help implementing the features in the
+"TODO" list and pull-requesting it to us. `:^)`  
+You can also improve functions that already exist in the code, fix bugs etc.  
 
-### Hacking
+## Who can I blame for it?
+Me, Luiz Antonio (a.k.a takusuman).
