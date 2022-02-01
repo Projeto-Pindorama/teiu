@@ -1,5 +1,5 @@
 #!/bin/ksh
-# Teiu - The really tiny² installation system for Copacabana Linux
+# Teiú - The really tiny² installation wizard for Copacabana Linux.
 
 function main {
 	echo 'What would you like to do?'
@@ -16,7 +16,7 @@ function main {
 function setup { 
 	echo 'Beginning system instalation — looking for disks...' 
 	disk_lookup
-	
+		
 }
 
 function disk_lookup {
@@ -42,16 +42,33 @@ function disk_lookup {
 		disk=${disk_id[$(( $REPLY - 1))]}
 		break	
 	done
-	IFS=$OLDIFS printf '%s, %s' $disk $REPLY
+	IFS=$OLDIFS printf 'Selected disk unit "%s"\n.' $disk
+	
+	# export the $disk variable, we will be using it later on.
+	export disk
+}
+
+function check_network {
+	# First strip *// from the start of the string
+	mirror_basename=${1#*//}
+	# Then strip the rest
+	mirror_basename=${mirror_basename%%/*}
+
+	# And tada! You have just the domain name
+	printf '%s\n\n' "GET ${mirror_basename} HTTP/1.0" \
+		| netcat "${mirror_basename}" 80 >/dev/null 2>&1
+	retval=$?
+
+	return $retval
 }
 
 # Function plain-copied from cmd/download_sources.bash
-realpath(){
-  file_basename=`basename $1`
-  file_dirname=`dirname $1`
+function realpath {
+  file_basename=$(basename $1)
+  file_dirname=$(dirname $1)
 	# get the absolute directory name
 	# example: ./sources.txt -> /usr/src/copacabana-repo/sources.txt
-  echo "`cd "${file_dirname}"; pwd`/${file_basename}"
+  echo "$(cd "${file_dirname}"; pwd)/${file_basename}"
 }
 
 main
